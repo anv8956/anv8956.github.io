@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     * {
       box-sizing: border-box;
@@ -51,10 +53,19 @@
       height: 100vh;
       background: radial-gradient(circle at center, #1a1a1a, #000);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       padding: 2rem;
+    }
+
+    .hero img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px #00ffd5;
     }
 
     .hero h2 {
@@ -95,7 +106,7 @@
     .project-card {
       background: #1a1a1a;
       border: 1px solid #333;
-      padding: 1.5rem;
+      padding: 1rem;
       border-radius: 10px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -103,6 +114,12 @@
     .project-card:hover {
       transform: scale(1.03);
       box-shadow: 0 0 15px #00ffd5aa;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
     }
 
     .project-card h3 {
@@ -123,6 +140,11 @@
         font-size: 2rem;
       }
     }
+
+    a {
+      color: #00ffd5;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -136,51 +158,62 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <div>
-      <h2>Hello, I'm Ankit 👋</h2>
-      <p>A passionate developer crafting modern and responsive web experiences.</p>
-    </div>
+  <section class="hero" id="home">
+    <img src="https://i.pravatar.cc/300?img=12" alt="Profile Image" data-aos="fade-up" />
+    <h2 data-aos="fade-up" data-aos-delay="200">Hi, I'm Ankit 👋</h2>
+    <p data-aos="fade-up" data-aos-delay="400">Full-Stack Developer • UI/UX Enthusiast • Lifelong Learner</p>
   </section>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2 class="section-title">About Me</h2>
     <div class="about">
-      <p>I'm a full-stack developer with a love for elegant, clean code and user-friendly UI. I specialize in building applications that are fast, responsive, and delightful to use.</p>
+      <p>I'm a passionate full-stack developer who loves to build clean and scalable web applications. I believe in simplicity and elegance in design and development.</p>
     </div>
   </section>
 
   <section id="projects">
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title" data-aos="fade-up">Projects</h2>
     <div class="projects">
       <div class="projects-grid">
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in">
+          <img src="https://source.unsplash.com/400x250/?weather" alt="Weather App">
           <h3>Weather App</h3>
-          <p>Real-time weather updates using OpenWeather API with sleek UI.</p>
+          <p>Real-time weather updates using OpenWeather API with clean UI.</p>
         </div>
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://source.unsplash.com/400x250/?code" alt="Portfolio">
           <h3>Portfolio Website</h3>
-          <p>This very portfolio you’re viewing right now!</p>
+          <p>This portfolio site you're currently visiting, built with love!</p>
         </div>
-        <div class="project-card">
+        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://source.unsplash.com/400x250/?todo" alt="Task Tracker">
           <h3>Task Tracker</h3>
-          <p>To-do app built with localStorage & drag-drop features.</p>
+          <p>Drag-and-drop to-do list app with offline support and reminders.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" data-aos="fade-up">
     <h2 class="section-title">Get in Touch</h2>
     <div class="contact">
-      <p>📧 Email: yourname@example.com</p>
-      <p>💼 LinkedIn: <a href="#" style="color:#00ffd5;">linkedin.com/in/yourprofile</a></p>
+      <p>📧 Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+      <p>💼 LinkedIn: <a href="#">linkedin.com/in/yourprofile</a></p>
     </div>
   </section>
 
   <footer>
     <p>&copy; 2025 Ankit Vishwakarma. All rights reserved.</p>
   </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
 
 </body>
 </html>
