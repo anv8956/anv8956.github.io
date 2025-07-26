@@ -3,221 +3,242 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+  <title>Ankit's Tech Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
   <style>
     * {
+      margin: 0; padding: 0;
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background: #0f0f0f;
+      background: radial-gradient(#0f0f0f, #000);
       color: #fff;
       scroll-behavior: smooth;
     }
 
     header {
-      background: linear-gradient(to right, #1e1e1e, #121212);
-      padding: 1rem 2rem;
-      position: sticky;
+      position: fixed;
+      width: 100%;
       top: 0;
-      z-index: 1000;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
+      padding: 15px 50px;
+      z-index: 1000;
+      box-shadow: 0 0 10px #0ff;
     }
 
     header h1 {
-      color: #00ffd5;
-      font-size: 1.5rem;
+      font-size: 1.8em;
+      color: #0ff;
     }
 
     nav a {
-      color: #fff;
+      margin: 0 15px;
+      color: #ccc;
       text-decoration: none;
-      margin-left: 1.5rem;
-      transition: color 0.3s;
+      font-weight: 500;
+      transition: 0.3s;
     }
 
     nav a:hover {
-      color: #00ffd5;
+      color: #0ff;
     }
 
     .hero {
       height: 100vh;
-      background: radial-gradient(circle at center, #1a1a1a, #000);
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 2rem;
+      justify-content: space-around;
+      padding: 0 50px;
     }
 
-    .hero img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px #00ffd5;
+    .hero-text h2 {
+      font-size: 2.5em;
     }
 
-    .hero h2 {
-      font-size: 3rem;
-      color: #00ffd5;
-      margin-bottom: 1rem;
+    .hero-text h2 span {
+      color: #0ff;
     }
 
-    .hero p {
-      font-size: 1.2rem;
+    .hero-text p {
+      margin-top: 20px;
+      font-size: 1.2em;
       color: #ccc;
     }
 
+    .hero img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #0ff;
+      box-shadow: 0 0 30px #0ff;
+    }
+
     section {
-      padding: 4rem 2rem;
+      padding: 100px 50px;
     }
 
-    h2.section-title {
-      font-size: 2.5rem;
-      color: #00ffd5;
-      margin-bottom: 2rem;
-      text-align: center;
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 30px;
+      color: #0ff;
     }
 
-    .about, .projects, .contact {
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
+    .about p {
+      line-height: 1.7;
+      color: #aaa;
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    .resume {
+      margin-top: 30px;
     }
 
-    .project-card {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      padding: 1rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .resume a {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: #0ff;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #0ff;
+      transition: transform 0.3s ease;
     }
 
-    .project-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 15px #00ffd5aa;
+    .resume a:hover {
+      transform: scale(1.05);
     }
 
-    .project-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-
-    .project-card h3 {
-      color: #00ffd5;
-      margin-bottom: 0.5rem;
+    .contact a {
+      display: block;
+      margin: 10px 0;
+      color: #0ff;
+      text-decoration: none;
     }
 
     footer {
-      background: #111;
       text-align: center;
-      padding: 2rem;
-      color: #aaa;
-      margin-top: 4rem;
+      padding: 20px;
+      color: #777;
+      background-color: #111;
+      border-top: 1px solid #222;
     }
 
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2rem;
+    [data-aos] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+
+    [data-aos].aos-animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glow {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+      }
+      to {
+        text-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
       }
     }
 
-    a {
-      color: #00ffd5;
-      text-decoration: none;
+    .typing {
+      color: #0ff;
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 15px 20px;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        margin-top: 30px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>MyPortfolio</h1>
+    <h1>Ankit.</h1>
     <nav>
+      <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <img src="" alt="Profile Image" data-aos="fade-up" />
-    <h2 data-aos="fade-up" data-aos-delay="200">Hi, I'm Ankit 👋</h2>
-    <p data-aos="fade-up" data-aos-delay="400">Full-Stack Developer • UI/UX Enthusiast • Lifelong Learner</p>
+  <section id="home" class="hero">
+    <div class="hero-text" data-aos="fade-right">
+      <h2>Hello, I'm <span class="glow">Ankit Vishwakarma</span></h2>
+      <div class="typing" id="typing"></div>
+      <p>Passionate Developer | Creative Thinker | Tech Enthusiast</p>
+    </div>
+    <div data-tilt data-aos="fade-left">
+      <img src="profile.jpg" alt="Profile Picture" />
+    </div>
   </section>
 
-  <section id="about" data-aos="fade-up">
+  <section id="about" class="about" data-aos="fade-up">
     <h2 class="section-title">About Me</h2>
-    <div class="about">
-      <p>I'm a passionate full-stack developer who loves to build clean and scalable web applications. I believe in simplicity and elegance in design and development.</p>
+    <p>
+      I am a developer focused on crafting clean, creative, and interactive experiences. I specialize in building web applications with modern tools and creating interfaces that feel alive.
+    </p>
+    <div class="resume">
+      <a href="Ankit_Resume.pdf" download><i class="fa fa-download"></i> Download Resume</a>
     </div>
   </section>
 
-  <section id="projects">
-    <h2 class="section-title" data-aos="fade-up">Projects</h2>
-    <div class="projects">
-      <div class="projects-grid">
-        <div class="project-card" data-aos="zoom-in">
-          <img src="https://source.unsplash.com/400x250/?weather" alt="Weather App">
-          <h3>Weather App</h3>
-          <p>Real-time weather updates using OpenWeather API with clean UI.</p>
-        </div>
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-          <img src="https://source.unsplash.com/400x250/?code" alt="Portfolio">
-          <h3>Portfolio Website</h3>
-          <p>This portfolio site you're currently visiting, built with love!</p>
-        </div>
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-          <img src="https://source.unsplash.com/400x250/?todo" alt="Task Tracker">
-          <h3>Task Tracker</h3>
-          <p>Drag-and-drop to-do list app with offline support and reminders.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" data-aos="fade-up">
-    <h2 class="section-title">Get in Touch</h2>
-    <div class="contact">
-      <p>📧 Email: <a href="ankit9835185178@gmail.com">ankit9835185178@gmail.com</a></p>
-      <p>💼 LinkedIn: <a href="www.linkedin.com/in/ankit-vishwakarma-988594201
-
-">www.linkedin.com/in/ankit-vishwakarma-988594201
-
-</a></p>
-    </div>
+  <section id="contact" class="contact" data-aos="fade-up">
+    <h2 class="section-title">Contact</h2>
+    <a href="mailto:ankit9835185178@gmail.com"><i class="fa fa-envelope"></i> ankit9835185178@gmail.com</a>
+    <a href="https://www.linkedin.com/in/ankit-vishwakarma-988594201" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
   </section>
 
   <footer>
-    <p>&copy; 2025 Ankit Vishwakarma. All rights reserved.</p>
+    &copy; 2025 Ankit Vishwakarma | All Rights Reserved
   </footer>
 
-  <!-- AOS Animation Script -->
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
+    AOS.init();
+    new Typed('#typing', {
+      strings: ["Web Developer", "UI/UX Designer", "Tech Explorer"],
+      typeSpeed: 80,
+      backSpeed: 40,
+      loop: true
+    });
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+      max: 25,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.4
     });
   </script>
-
 </body>
 </html>
