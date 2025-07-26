@@ -3,86 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Simple Webpage Layout</title>
+  <title>My Portfolio</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: #0f0f0f;
+      color: #fff;
+      scroll-behavior: smooth;
     }
 
     header {
-      background-color: #333;
-      color: white;
-      padding: 1rem;
-      text-align: center;
+      background: linear-gradient(to right, #1e1e1e, #121212);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05);
     }
 
-    nav {
-      background-color: #444;
-      color: white;
-      padding: 0.5rem;
-      text-align: center;
+    header h1 {
+      color: #00ffd5;
+      font-size: 1.5rem;
     }
 
     nav a {
-      color: white;
-      margin: 0 10px;
+      color: #fff;
       text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.3s;
     }
 
-    .container {
+    nav a:hover {
+      color: #00ffd5;
+    }
+
+    .hero {
+      height: 100vh;
+      background: radial-gradient(circle at center, #1a1a1a, #000);
       display: flex;
-      flex: 1;
-      padding: 1rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
     }
 
-    main {
-      flex: 3;
-      padding: 1rem;
-      background-color: #f4f4f4;
+    .hero h2 {
+      font-size: 3rem;
+      color: #00ffd5;
+      margin-bottom: 1rem;
     }
 
-    aside {
-      flex: 1;
-      padding: 1rem;
-      background-color: #e4e4e4;
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    h2.section-title {
+      font-size: 2.5rem;
+      color: #00ffd5;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .about, .projects, .contact {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 1.5rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #00ffd5aa;
+    }
+
+    .project-card h3 {
+      color: #00ffd5;
+      margin-bottom: 0.5rem;
     }
 
     footer {
-      background-color: #333;
-      color: white;
+      background: #111;
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
+      color: #aaa;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>My Simple Webpage</h1>
+    <h1>MyPortfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
+  <section class="hero">
+    <div>
+      <h2>Hello, I'm Ankit 👋</h2>
+      <p>A passionate developer crafting modern and responsive web experiences.</p>
+    </div>
+  </section>
 
-  <div class="container">
-    <main>
-      <h2>Main Content</h2>
-      <p>This is where your main content goes.</p>
-    </main>
-    <aside>
-      <h3>Sidebar</h3>
-      <p>Some additional info or links here.</p>
-    </aside>
-  </div>
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about">
+      <p>I'm a full-stack developer with a love for elegant, clean code and user-friendly UI. I specialize in building applications that are fast, responsive, and delightful to use.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects">
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Weather App</h3>
+          <p>Real-time weather updates using OpenWeather API with sleek UI.</p>
+        </div>
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>This very portfolio you’re viewing right now!</p>
+        </div>
+        <div class="project-card">
+          <h3>Task Tracker</h3>
+          <p>To-do app built with localStorage & drag-drop features.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact">
+      <p>📧 Email: yourname@example.com</p>
+      <p>💼 LinkedIn: <a href="#" style="color:#00ffd5;">linkedin.com/in/yourprofile</a></p>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Your Website</p>
+    <p>&copy; 2025 Ankit Vishwakarma. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
